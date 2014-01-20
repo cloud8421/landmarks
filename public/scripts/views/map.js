@@ -15,9 +15,15 @@ window.Landmarks.Map.prototype = {
   },
   drawMarker: function(location) {
     var landmarkLatLng = new google.maps.LatLng(location.lat, location.lng);
+    var infowindow = new google.maps.InfoWindow({
+      content: location.title
+    });
     var marker = new google.maps.Marker({
       position: landmarkLatLng,
-        title: location.title
+      title: location.title
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(this.map, marker);
     });
     marker.setMap(this.map);
   },
@@ -33,9 +39,9 @@ window.Landmarks.Map.prototype = {
 
     var currentPosition = new google.maps.Marker({
       position: center,
-        title: 'Your position',
-        type: 'circle',
-        icon: 'images/current.png'
+      title: 'Your position',
+      type: 'circle',
+      icon: 'images/current.png'
     });
 
     currentPosition.setMap(this.map);
