@@ -27,11 +27,13 @@
   <script src="/scripts/app.js"></script>
   <script src="/scripts/utils/pubsub.js"></script>
   <script src="/scripts/utils/request.js"></script>
+  <script src="/scripts/models/geolocation.js"></script>
   <script src="/scripts/models/api.js"></script>
   <script src="/scripts/models/locations.js"></script>
   <script src="/scripts/views/map.js"></script>
   <script src="/scripts/views/form.js"></script>
   <script>
+    window.geoLocation = new Landmarks.Geolocation();
     window.map = new Landmarks.Map('map-container', 51.500688, -0.124411);
     window.form = new Landmarks.Form({
       form: 'search',

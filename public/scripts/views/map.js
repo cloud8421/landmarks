@@ -4,11 +4,15 @@ window.Landmarks.Map = function(container, lat, lng) {
   this.lng = lng;
   this.locations = new Landmarks.Locations(lat, lng);
   Landmarks.PubSub.sub('landmarks', this.render, this);
-  this.locations.fetch();
+  Landmarks.PubSub.sub('coords', this.setCoords, this);
   return this;
 }
 
 window.Landmarks.Map.prototype = {
+  setCoords: function (coords) {
+    this.lat = coords.lat;
+    this.lng = coords.lng;
+  },
   render: function() {
     var mapOptions = {
       center: new google.maps.LatLng(this.lat, this.lng),

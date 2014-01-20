@@ -4,12 +4,18 @@ window.Landmarks.Locations = function(lat, lng) {
   this.apiEndpoint.lat = lat;
   this.apiEndpoint.lng = lng;
   Landmarks.PubSub.sub('distance', this.setDistance, this);
+  Landmarks.PubSub.sub('coords', this.setCoords, this);
   return this;
 }
 
 window.Landmarks.Locations.prototype = {
   setDistance: function (radius) {
     this.apiEndpoint.radius = radius;
+    this.fetch();
+  },
+  setCoords: function (coords) {
+    this.apiEndpoint.lat = coords.lat;
+    this.apiEndpoint.lng = coords.lng;
     this.fetch();
   },
   parse: function (self) {
