@@ -24,7 +24,17 @@
     <section id="map-container"></section>
   </div>
   <script src="/scripts/app.js"></script>
+  <script src="/scripts/utils/pubsub.js"></script>
   <script src="/scripts/utils/request.js"></script>
+  <script src="/scripts/models/api.js"></script>
   <script src="/scripts/models/locations.js"></script>
+  <script src="/scripts/views/form.js"></script>
+  <script>
+    window.locations = new Landmarks.Locations(51.500688, -0.124411);
+    window.form = new Landmarks.Form({
+      form: 'search',
+      distanceSelect: 'distance'
+    });
+  </script>
 </body>
 </html>
