@@ -13,23 +13,34 @@ window.Landmarks.Map.prototype = {
     this.lat = coords.lat;
     this.lng = coords.lng;
   },
+  drawMarker: function(location) {
+    var landmarkLatLng = new google.maps.LatLng(location.lat, location.lng);
+    var marker = new google.maps.Marker({
+      position: landmarkLatLng,
+        title: location.title
+    });
+    marker.setMap(this.map);
+  },
   render: function() {
+    var center = new google.maps.LatLng(this.lat, this.lng);
     var mapOptions = {
       center: new google.maps.LatLng(this.lat, this.lng),
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    var map = new google.maps.Map(this.container, mapOptions);
+    this.map = new google.maps.Map(this.container, mapOptions);
 
-    this.locations.locations.forEach(function(location) {
-      var landmarkLatLng = new google.maps.LatLng(location.lat, location.lng);
-      var marker = new google.maps.Marker({
-          position: landmarkLatLng,
-          title: location.title
-      });
-      marker.setMap(map);
+    var currentPosition = new google.maps.Marker({
+      position: center,
+        title: 'Your position',
+        type: 'circle',
+        icon: 'images/current.png'
     });
 
+    currentPosition.setMap(this.map);
+
+    var drawMapCallback = this.drawMarker.bind(this);
+    this.locations.locations.forEach(drawMapCallback);
   }
 }
