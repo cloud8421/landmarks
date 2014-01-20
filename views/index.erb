@@ -23,14 +23,16 @@
     </form>
     <section id="map-container"></section>
   </div>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&sensor=false"></script>
   <script src="/scripts/app.js"></script>
   <script src="/scripts/utils/pubsub.js"></script>
   <script src="/scripts/utils/request.js"></script>
   <script src="/scripts/models/api.js"></script>
   <script src="/scripts/models/locations.js"></script>
+  <script src="/scripts/views/map.js"></script>
   <script src="/scripts/views/form.js"></script>
   <script>
-    window.locations = new Landmarks.Locations(51.500688, -0.124411);
+    window.map = new Landmarks.Map('map-container', 51.500688, -0.124411);
     window.form = new Landmarks.Form({
       form: 'search',
       distanceSelect: 'distance'

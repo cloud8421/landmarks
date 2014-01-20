@@ -11,7 +11,6 @@ window.Landmarks.Form.prototype = {
   },
   search: function (event) {
     event.preventDefault();
-    console.log("Form:", this.getDistance());
     Landmarks.PubSub.pub('distance', this.getDistance());
   },
   listenForSubmit: function () {

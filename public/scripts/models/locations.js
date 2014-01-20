@@ -9,14 +9,12 @@ window.Landmarks.Locations = function(lat, lng) {
 
 window.Landmarks.Locations.prototype = {
   setDistance: function (radius) {
-    console.log("Locations:", radius);
     this.apiEndpoint.radius = radius;
     this.fetch();
   },
   parse: function (self) {
     var data = JSON.parse(this.responseText);
     self.locations = data.articles;
-    console.table(self.locations);
     Landmarks.PubSub.pub('landmarks');
   },
   fetch: function() {
