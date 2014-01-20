@@ -3,8 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Landmarks</title>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
-  <p>Everything works properly.</p>
+  <header>
+    <h1>Landmarks</h1>
+  </header>
+  <div id="main">
+    <form action="/" id="search">
+      <label for="distance">Show me landmarks no further than:</label>
+      <select id="distance" name="distance">
+        <option value="100">100m</option>
+        <option value="200">200m</option>
+        <option value="500">500m</option>
+        <option value="1000">1km</option>
+      </select>
+      <input type="submit" value="Search!">
+    </form>
+    <section id="map-container"></section>
+  </div>
 </body>
 </html>

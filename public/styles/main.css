@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', Helvetica, sans-serif;
+}
+
+h1 {
+  margin: 0;
+  font-weight: bold;
+  color: white;
+}
+
+header {
+  background-color: #0678BF;
+  text-align: center;
+  padding: 0.5em;
+  border-bottom: 3px solid #1F92BF;
+}
+
+form {
+  text-align: center;
+  padding: 1em;
+}
+
+input[type=submit] {
+  background-color: #22CCF2;
+  color: white;
+  border: 1px solid #0678BF;
+  font-weight: bold;
+  padding: 0.3em 1em;
+  font-size: 0.8em;
+}
+
+#map-container {
+  width: 80%;
+  height: 30em;
+  display: block;
+  box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.25);
+  margin: 0 auto;
+}
