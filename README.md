@@ -20,3 +20,12 @@ Then, update `.env` with a working Google Maps V3 Api key.
 ## Run the server
 
     $ bundle exec rackup
+
+## Heroku deployment
+
+Assuming you're calling the new app `my-landmarks-app`
+
+    $ heroku create my-landmarks-app
+    $ heroku config:set GOOGLE_MAPS_API_KEY=your-api-key --app my-landmarks-app
+    $ git push heroku master
+    $ heroku open
